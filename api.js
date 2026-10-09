@@ -1,6 +1,48 @@
 // QuickNotes API client - talks to the JSONPlaceholder practice API.
 const API_URL = "https://jsonplaceholder.typicode.com/posts";
 const MAX_TITLE_LENGTH = 100;
+const ENGLISH_SAMPLE_NOTES = [
+  {
+    title: "Plan the week",
+    body: "Review the calendar, choose the three most important tasks, and leave room for breaks.",
+  },
+  {
+    title: "Grocery list",
+    body: "Pick up fresh vegetables, bread, eggs, and coffee on the way home.",
+  },
+  {
+    title: "Project check-in",
+    body: "Share the latest progress, discuss any blockers, and agree on the next steps.",
+  },
+  {
+    title: "Book recommendation",
+    body: "Ask Maya for the name of the mystery novel she mentioned last weekend.",
+  },
+  {
+    title: "Weekend walk",
+    body: "Try the riverside trail if the weather is sunny. Bring water and a light jacket.",
+  },
+  {
+    title: "Call the dentist",
+    body: "Schedule a check-up for next month and ask about available morning appointments.",
+  },
+  {
+    title: "Lunch ideas",
+    body: "Make a quick chickpea salad with cucumber, tomatoes, lemon, and herbs.",
+  },
+  {
+    title: "Learning goal",
+    body: "Spend twenty minutes each day practicing a new skill and write down one thing learned.",
+  },
+  {
+    title: "Home checklist",
+    body: "Water the plants, tidy the desk, and replace the hallway light bulb.",
+  },
+  {
+    title: "Things to remember",
+    body: "Charge the headphones tonight and take the library books tomorrow.",
+  },
+];
 
 const loadBtn = document.getElementById("load-btn");
 const submitBtn = document.getElementById("submit-btn");
@@ -89,7 +131,10 @@ async function loadNotes() {
   setBusy(true);
   try {
     const { data } = await request(`${API_URL}?_limit=10`);
-    renderNotes(data);
+    renderNotes(data.map((note, index) => ({
+      ...note,
+      ...ENGLISH_SAMPLE_NOTES[index % ENGLISH_SAMPLE_NOTES.length],
+    })));
     setStatus(
       data.length ? `Loaded ${data.length} notes from the server.` : "The server returned no notes.",
       "success"
