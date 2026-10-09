@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; background: #f5f6f8; color: #222; margin: 0; line-height: 1.5; }
+main { max-width: 640px; margin: 0 auto; padding: 1.5rem 1rem; }
+h1 { margin-top: 0; }
+label { display: block; margin: 0.75rem 0 0.25rem; font-weight: 600; }
+input, textarea { width: 100%; padding: 0.5rem; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
+button { padding: 0.5rem 1rem; border: 0; border-radius: 6px; background: #2457d6; color: #fff; font: inherit; cursor: pointer; }
+button:disabled { background: #9aa7c7; cursor: not-allowed; }
+button.delete-btn { background: #b3261e; padding: 0.3rem 0.7rem; }
+button.delete-btn:disabled { background: #d3a4a1; }
+form { background: #fff; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+form button { margin-top: 0.75rem; }
+#status { min-height: 1.5rem; margin: 0.75rem 0; padding: 0.25rem 0.5rem; border-radius: 6px; }
+#status.loading { color: #444; background: #e8eaf0; }
+#status.success { color: #0b5c24; background: #dff4e5; border-left: 4px solid #1e8e3e; }
+#status.error { color: #7a1510; background: #fde4e2; border-left: 4px solid #b3261e; }
+#notes-list { list-style: none; padding: 0; }
+#notes-list li { background: #fff; padding: 1rem; margin-bottom: 0.75rem; border-radius: 8px; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+#notes-list li.empty { text-align: center; color: #666; font-style: italic; }
+#notes-list h3 { margin: 0 0 0.25rem; }
+#notes-list p { margin: 0 0 0.75rem; white-space: pre-wrap; }
